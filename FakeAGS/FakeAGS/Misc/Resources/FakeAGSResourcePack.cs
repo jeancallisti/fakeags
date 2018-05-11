@@ -8,8 +8,11 @@ using FakeAGS.API;
 
 namespace FakeAGS.Engine
 {
+
+
     public class FakeAGSResourcePack : FileSystemResourcePack, IFakeAGSResourcePack
     {
+        public static string defFileName = "def.xml";
         protected IFileSystem _fileSystem;
         //protected string _assetsPath = "";
         public string AssetsPath { get; set; }
@@ -41,7 +44,7 @@ namespace FakeAGS.Engine
             if (path == null) return;
 
             //Load resource definition in current directory
-            string file = Path.Combine(path, "def.xml");
+            string file = Path.Combine(path, defFileName).Replace("\\", "/");
             if (_fileSystem.FileExists(file))
             {
                 if (resources == null) resources = new List<IResource>();
@@ -58,6 +61,5 @@ namespace FakeAGS.Engine
 
         }
 
-        //protected string detectAssetsPath
     }
 }

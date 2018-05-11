@@ -43,12 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssetsDefinitions\IAssetDef.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Misc\Resources\IFakeAGSResourceLoader.cs" />
     <Compile Include="Misc\Resources\IFakeAGSResourcePack.cs" />
-    <Compile Include="XMLDefinitions\IXMLDef.cs" />
-    <Compile Include="Factories\IXMLLoader.cs" />
+    <Compile Include="AssetsDefinitions\IAssetDefsFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Factories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

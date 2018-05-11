@@ -26,16 +26,16 @@ namespace FakeAGS
         /// <summary>
         /// Scans all subfolders of Assets and tries to read def.xml file in each of them
         /// </summary>
-        /// <param name="r"></param>
+        /// <param name="loader"></param>
         /// <param name="path">The path is relative to the Assets root folder! Not to the execution folder!</param>
         /// <returns></returns>
-        public static List<IResource> LoadAllDefinitionsRecursively(this IResourceLoader r)
+        public static List<IResource> LoadAllDefinitionsRecursively(this IResourceLoader loader)
         {
             List<IResource> resources = new List<IResource>();
 
             //this list is private... We can't access it! Therefore we have to re-do the sorting job here (code duplication)
             List <IResourcePack> _sortedResourcePacks = new List<IResourcePack>(1);
-            _sortedResourcePacks = r.ResourcePacks.OrderByDescending(p => p.Priority).Select(p => p.Pack).ToList();
+            _sortedResourcePacks = loader.ResourcePacks.OrderByDescending(p => p.Priority).Select(p => p.Pack).ToList();
 
             Debug.WriteLine("Load all assets recursively.");
             
@@ -54,20 +54,12 @@ namespace FakeAGS
                     Debug.WriteLine($"WARNING : LoadAllAssetsRecursively not implemented for ResourcePacks of type {pack.GetType().ToString()}");
                 }
             }
+            
+            if ((resources?.Count ?? 0) > 0) return resources.OrderBy(r => r.ID).ToList();
             return resources;
         }
 
-        /*
-        public static int ListFolders(this IResourceLoader r, string path)
-        {
-            return 666;
-        }
 
-        public static bool ListFolders(this FileSystemResourcePack r, string path)
-        {
-            return _fileSystem.DirectoryExists(path);
-        }
-        */
 
     }
 

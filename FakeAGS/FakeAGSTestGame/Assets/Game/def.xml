@@ -1,5 +1,77 @@
 <?xml version="1.0" encoding="Windows-1252"?>
-<root>
-	<node>
-	</node>
-</root>
+
+<Settings>
+	<GameName xml:space="preserve">Maniac Mansion Mania Episode 38: Rescue Mission</GameName>
+	<UniqueID>65454238</UniqueID>
+	<GUIDAsString>{11ca25d1-f87a-42b4-b6d1-ff4d500ac938}</GUIDAsString>
+	<ColorDepth>HighColor</ColorDepth>
+	<CustomResolution>320,200</CustomResolution>
+	<GraphicsDriver>DX5</GraphicsDriver>
+	<CompressSprites>False</CompressSprites>
+	<SaveScreenshots>False</SaveScreenshots>
+	<RoomTransition>CrossFade</RoomTransition>
+	<MouseWheelEnabled>True</MouseWheelEnabled>
+	<UseLowResCoordinatesInScript>True</UseLowResCoordinatesInScript>
+	<TurnBeforeFacing>False</TurnBeforeFacing>
+	<TurnBeforeWalking>True</TurnBeforeWalking>
+	<SplitResources>0</SplitResources>
+	<LetterboxMode>False</LetterboxMode>
+	<AutoMoveInWalkMode>True</AutoMoveInWalkMode>
+	<PixelPerfect>True</PixelPerfect>
+	<WhenInterfaceDisabled>Unchanged</WhenInterfaceDisabled>
+	<GUIAlphaStyle>Classic</GUIAlphaStyle>
+	<SpriteAlphaStyle>Classic</SpriteAlphaStyle>
+	<RunGameLoopsWhileDialogOptionsDisplayed>False</RunGameLoopsWhileDialogOptionsDisplayed>
+	<InventoryHotspotMarkerStyle>None</InventoryHotspotMarkerStyle>
+	<InventoryHotspotMarkerSprite>0</InventoryHotspotMarkerSprite>
+	<InventoryHotspotMarkerDotColor>0</InventoryHotspotMarkerDotColor>
+	<InventoryHotspotMarkerCrosshairColor>0</InventoryHotspotMarkerCrosshairColor>
+	<WalkInLookMode>False</WalkInLookMode>
+	<AntiGlideMode>False</AntiGlideMode>
+	<DebugMode>False</DebugMode>
+	<InventoryCursors>True</InventoryCursors>
+	<HandleInvClicksInScript>True</HandleInvClicksInScript>
+	<DisplayMultipleInventory>False</DisplayMultipleInventory>
+	<ScriptAPIVersion>v340</ScriptAPIVersion>
+	<ScriptCompatLevel>v340</ScriptCompatLevel>
+	<EnforceObjectBasedScript>True</EnforceObjectBasedScript>
+	<EnforceNewStrings>True</EnforceNewStrings>
+	<EnforceNewAudio>False</EnforceNewAudio>
+	<UseOldCustomDialogOptionsAPI>False</UseOldCustomDialogOptionsAPI>
+	<LeftToRightPrecedence>False</LeftToRightPrecedence>
+	<PlaySoundOnScore>0</PlaySoundOnScore>
+	<CrossfadeMusic>SlowFade</CrossfadeMusic>
+	<DialogOptionsGUI>2</DialogOptionsGUI>
+	<DialogOptionsGap>0</DialogOptionsGap>
+	<DialogOptionsBullet>0</DialogOptionsBullet>
+	<SkipSpeech>MouseOrKeyboardOrTimer</SkipSpeech>
+	<SpeechStyle>Lucasarts</SpeechStyle>
+	<UseGlobalSpeechAnimationDelay>False</UseGlobalSpeechAnimationDelay>
+	<GlobalSpeechAnimationDelay>5</GlobalSpeechAnimationDelay>
+	<LegacySpeechAnimationSpeed>False</LegacySpeechAnimationSpeed>
+	<NumberDialogOptions>KeyShortcutsOnly</NumberDialogOptions>
+	<DialogOptionsBackwards>False</DialogOptionsBackwards>
+	<SpeechPortraitSide>Left</SpeechPortraitSide>
+	<TextWindowGUI>0</TextWindowGUI>
+	<AlwaysDisplayTextAsSpeech>True</AlwaysDisplayTextAsSpeech>
+	<FontsForHiRes>False</FontsForHiRes>
+	<AntiAliasFonts>False</AntiAliasFonts>
+	<ThoughtGUI>0</ThoughtGUI>
+	<BackwardsText>False</BackwardsText>
+	<MaximumScore>0</MaximumScore>
+	<HasMODMusic>False</HasMODMusic>
+	<GameExplorerEnabled>True</GameExplorerEnabled>
+	<Description xml:space="preserve">Maniac Mansion Mania Episode 38: Rescue Mission</Description>
+	<ReleaseDate>2014-09-05</ReleaseDate>
+	<Genre>Adventure</Genre>
+	<Version>2.0.2.0</Version>
+	<WindowsExperienceIndex>1</WindowsExperienceIndex>
+	<DeveloperName>ConeRX</DeveloperName>
+	<DeveloperURL>http://conequest.de</DeveloperURL>
+	<EnhancedSaveGames>False</EnhancedSaveGames>
+	<SaveGameFileExtension />
+	<SaveGameFolderName />
+	<BinaryFilesInSourceControl>False</BinaryFilesInSourceControl>
+	<AudioIndexer>130</AudioIndexer>
+	<BuildTargets xml:space="preserve">Windows, Linux</BuildTargets>
+</Settings>

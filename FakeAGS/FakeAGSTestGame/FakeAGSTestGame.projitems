@@ -14,5 +14,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\Game\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Assets\Rooms\" />
   </ItemGroup>
 </Project>

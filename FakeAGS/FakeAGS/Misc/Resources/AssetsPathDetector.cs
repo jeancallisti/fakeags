@@ -26,7 +26,7 @@ namespace FakeAGS.Engine
                     //path = fileSystem.GetFiles(path).First;
                     //_assetsFolder = Path.Combine(rootPath, path);
                     _assetsFolder = path;
-                    return _assetsFolder;
+                    return _assetsFolder.Replace("/./", "/");
                 }
                 path = "../"+path;
             }

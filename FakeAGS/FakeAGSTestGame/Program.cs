@@ -10,6 +10,8 @@ using System.Xml.Linq;
 using System.Collections.Generic;
 using FakeAGS.Engine;
 using FakeAGS;
+using FakeAGS.API;
+using System.Linq;
 
 namespace FakeAGSTestGame
 {
@@ -19,7 +21,7 @@ namespace FakeAGSTestGame
 
         public void StartGame(IGame game)
         {
-            Debug.WriteLine("Startup: START GAME");
+            Debug.WriteLine("Startup: StartGame");
 
 
             //Rendering the text at a 4 time higher resolution than the actual game, so it will still look sharp when maximizing the window.
@@ -35,18 +37,12 @@ namespace FakeAGSTestGame
 
                 List<IResource> resources = game.Factory.Resources.LoadAllDefinitionsRecursively();
 
-                /*
-                IResource r = game.Factory.Resources.LoadResource("../../Assets/Game/game.xml");
-                using (XmlReader reader = XmlReader.Create(r.Stream))
-                {
-                    XDocument x =   XDocument.Load(reader);
-                }
+                List<IAssetDef> gameAssetsDefs = new AssetDefsFactory(game, resources).Process("*/Game/*");
+                var roomsAssetsDefs = new AssetDefsFactory(game, resources).Process("*/Rooms/*");
 
-                List<IResource> r2 = game.Factory.Resources.LoadResources("../../Assets/Game/");
+                string customRes = gameAssetsDefs.First().GetValue("CustomResolution");
+                Debug.WriteLine($"Debug : Custom resolution is : '{customRes}'");
 
-                //game.Factory.Resources.ListFolders("");
-                string[] f = game.Factory.Resources.ListFolders("../../Assets/Game/");
-                */
                 /*
                 game.Factory.Fonts.InstallFonts("../../Assets/Fonts/pf_ronda_seven.ttf", "../../Assets/Fonts/Pixel_Berry_08_84_Ltd.Edition.TTF");
                 AGSGameSettings.DefaultSpeechFont = game.Factory.Fonts.LoadFontFromPath("../../Assets/Fonts/pf_ronda_seven.ttf", 14f, FontStyle.Regular);
