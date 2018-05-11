@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeAGSTestGame.Desktop", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestGame", "TestGame", "{37A1C0BB-52E2-46C3-A58A-A1337D0CD461}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeAGS.API", "FakeAGS.API\FakeAGS.API.csproj", "{F51F7597-4074-4B0D-865E-7E6AE7C6F6A5}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		FakeAGSTestGame\FakeAGSTestGame.projitems*{1cb6c52a-b89c-4e8d-baa0-165ba5c4c696}*SharedItemsImports = 13
@@ -29,6 +31,10 @@ Global
 		{F665EBAF-B657-4F6D-AC10-F7151D81711C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F665EBAF-B657-4F6D-AC10-F7151D81711C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F665EBAF-B657-4F6D-AC10-F7151D81711C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F51F7597-4074-4B0D-865E-7E6AE7C6F6A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F51F7597-4074-4B0D-865E-7E6AE7C6F6A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F51F7597-4074-4B0D-865E-7E6AE7C6F6A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F51F7597-4074-4B0D-865E-7E6AE7C6F6A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

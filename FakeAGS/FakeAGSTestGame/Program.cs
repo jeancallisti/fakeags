@@ -5,6 +5,11 @@ using AGS.Editor;
 using System.Diagnostics;
 //using DemoQuest;
 using System;
+using System.Xml;
+using System.Xml.Linq;
+using System.Collections.Generic;
+using FakeAGS.Engine;
+using FakeAGS;
 
 namespace FakeAGSTestGame
 {
@@ -13,15 +18,36 @@ namespace FakeAGSTestGame
         private static Lazy<GameDebugView> _gameDebugView;
 
         public void StartGame(IGame game)
-        { 
+        {
+            Debug.WriteLine("Startup: START GAME");
+
+
             //Rendering the text at a 4 time higher resolution than the actual game, so it will still look sharp when maximizing the window.
             GLText.TextResolutionFactorX = 4;
             GLText.TextResolutionFactorY = 4;
 
             game.Events.OnLoad.Subscribe(async () =>
             {
-                game.Factory.Resources.ResourcePacks.Add(new ResourcePack(new FileSystemResourcePack(AGSGame.Device.FileSystem), 0));
+
+                //game.Factory.Resources.ResourcePacks.Add(new ResourcePack(new FileSystemResourcePack(AGSGame.Device.FileSystem), 0));
+                game.Factory.Resources.ResourcePacks.Add(new ResourcePack(new FakeAGSResourcePack(AGSGame.Device.FileSystem), 0));
                 game.Factory.Resources.ResourcePacks.Add(new ResourcePack(new EmbeddedResourcesPack(AGSGame.Device.Assemblies.EntryAssembly), 1));
+
+                List<IResource> resources = game.Factory.Resources.LoadAllDefinitionsRecursively();
+
+                /*
+                IResource r = game.Factory.Resources.LoadResource("../../Assets/Game/game.xml");
+                using (XmlReader reader = XmlReader.Create(r.Stream))
+                {
+                    XDocument x =   XDocument.Load(reader);
+                }
+
+                List<IResource> r2 = game.Factory.Resources.LoadResources("../../Assets/Game/");
+
+                //game.Factory.Resources.ListFolders("");
+                string[] f = game.Factory.Resources.ListFolders("../../Assets/Game/");
+                */
+                /*
                 game.Factory.Fonts.InstallFonts("../../Assets/Fonts/pf_ronda_seven.ttf", "../../Assets/Fonts/Pixel_Berry_08_84_Ltd.Edition.TTF");
                 AGSGameSettings.DefaultSpeechFont = game.Factory.Fonts.LoadFontFromPath("../../Assets/Fonts/pf_ronda_seven.ttf", 14f, FontStyle.Regular);
                 AGSGameSettings.DefaultTextFont = game.Factory.Fonts.LoadFontFromPath("../../Assets/Fonts/Pixel_Berry_08_84_Ltd.Edition.TTF", 14f, FontStyle.Regular);
@@ -36,8 +62,9 @@ namespace FakeAGSTestGame
                 await loadPlayerCharacter(game);
                 Debug.WriteLine("Startup: Loaded Player Character");
                 await loadSplashScreen(game);
+                */
             });
-            */
+            
         }
 
         public static void Run()

@@ -69,6 +69,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FakeAGS.API\FakeAGS.API.csproj">
+      <Project>{f51f7597-4074-4b0d-865e-7e6ae7c6f6a5}</Project>
+      <Name>FakeAGS.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FakeAGS\FakeAGS.csproj">
+      <Project>{7573D73A-3523-47E1-BA53-EF09D8810999}</Project>
+      <Name>FakeAGS</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\FakeAGSTestGame\FakeAGSTestGame.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
