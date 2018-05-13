@@ -10,23 +10,23 @@ namespace FakeAGS.Engine
 {
 
 
-    public class FakeAGSResourcePack : FileSystemResourcePack, IFakeAGSResourcePack
+    public class FakeAGSFileSystemResourcePack : FileSystemResourcePack, IFakeAGSResourcePack
     {
         public static string defFileName = "def.xml";
         protected IFileSystem _fileSystem;
         //protected string _assetsPath = "";
         public string AssetsPath { get; set; }
-        public FakeAGSResourcePack(IFileSystem fileSystem) : base(fileSystem)
+        public FakeAGSFileSystemResourcePack(IFileSystem fileSystem) : base(fileSystem)
         {
             _fileSystem = fileSystem;
             AssetsPath = AssetsPathDetector.detectAssetsFolder(_fileSystem); //Some lousy heuristics detection
         }
-
+        /*
         public bool LoadAssetDefinition(string path)
         {
             return _fileSystem.DirectoryExists(path);
         }
-
+        */
         public List<IResource> LoadAllDefinitionsRecursively()
         {
             List<IResource> resources = new List<IResource>();

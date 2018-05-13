@@ -9,11 +9,11 @@
     <Import_RootNamespace>FakeAGSTestGame</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Assets\Rooms\Splashscreen\RoomScript.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ExtensionMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Program.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Assets\Game\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Assets\Rooms\" />
   </ItemGroup>
 </Project>

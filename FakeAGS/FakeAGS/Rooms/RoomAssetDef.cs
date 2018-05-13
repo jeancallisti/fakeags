@@ -8,6 +8,7 @@ namespace FakeAGS.Engine
 {
     public class RoomAssetDef : AssetDef
     {
+
         public RoomAssetDef(IGame game, IResource resource) : base(game, resource)
         {
 

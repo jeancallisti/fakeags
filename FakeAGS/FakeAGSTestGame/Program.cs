@@ -18,6 +18,7 @@ namespace FakeAGSTestGame
     public class FakeAGSTestGameStarter : IGameStarter
     {
         private static Lazy<GameDebugView> _gameDebugView;
+        protected List<IResource> _resourcesTree;
 
         public void StartGame(IGame game)
         {
@@ -32,16 +33,17 @@ namespace FakeAGSTestGame
             {
 
                 //game.Factory.Resources.ResourcePacks.Add(new ResourcePack(new FileSystemResourcePack(AGSGame.Device.FileSystem), 0));
-                game.Factory.Resources.ResourcePacks.Add(new ResourcePack(new FakeAGSResourcePack(AGSGame.Device.FileSystem), 0));
-                game.Factory.Resources.ResourcePacks.Add(new ResourcePack(new EmbeddedResourcesPack(AGSGame.Device.Assemblies.EntryAssembly), 1));
+                game.Factory.Resources.ResourcePacks.Add(new ResourcePack(new FakeAGSFileSystemResourcePack(AGSGame.Device.FileSystem), 0));
+                //game.Factory.Resources.ResourcePacks.Add(new ResourcePack(new EmbeddedResourcesPack(AGSGame.Device.Assemblies.EntryAssembly), 1));
+                game.Factory.Resources.ResourcePacks.Add(new ResourcePack(new FakeAGSEmbeddedResourcePack(AGSGame.Device.Assemblies.EntryAssembly), 1));
 
-                List<IResource> resources = game.Factory.Resources.LoadAllDefinitionsRecursively();
+                _resourcesTree = game.Factory.Resources.LoadAllDefinitionsRecursively();
 
-                List<IAssetDef> gameAssetsDefs = new AssetDefsFactory(game, resources).Process("*/Game/*");
-                var roomsAssetsDefs = new AssetDefsFactory(game, resources).Process("*/Rooms/*");
+                //List<IAssetDef> gameAssetsDefs = new AssetDefsFactory(game, _resourcesTree).Process("*/Game/*");
+                //List<IAssetDef> roomsAssetsDefs = new AssetDefsFactory(game, _resourcesTree).Process("*/Rooms/*");
 
-                string customRes = gameAssetsDefs.First().GetValue("CustomResolution");
-                Debug.WriteLine($"Debug : Custom resolution is : '{customRes}'");
+                //string customRes = gameAssetsDefs.First().GetValue("CustomResolution");
+                //Debug.WriteLine($"Debug : Custom resolution is : '{customRes}'");
 
                 /*
                 game.Factory.Fonts.InstallFonts("../../Assets/Fonts/pf_ronda_seven.ttf", "../../Assets/Fonts/Pixel_Berry_08_84_Ltd.Edition.TTF");
@@ -57,8 +59,9 @@ namespace FakeAGSTestGame
                 Debug.WriteLine("Startup: Loading Assets");
                 await loadPlayerCharacter(game);
                 Debug.WriteLine("Startup: Loaded Player Character");
-                await loadSplashScreen(game);
                 */
+                await loadSplashScreen(game);
+                
             });
             
         }
@@ -76,8 +79,17 @@ namespace FakeAGSTestGame
             });
 
             starter.StartGame(game);
-            game.Start(new AGSGameSettings("Demo Game", new AGS.API.Size(320, 200),
-                windowSize: new AGS.API.Size(640, 400), windowState: WindowState.Normal));
+
+            Size screenSize = new AGS.API.Size(320, 200);
+            int factor = 2;
+
+            AGSGameSettings settings = new AGSGameSettings(
+                "Demo Game",
+                screenSize,
+                windowSize: new AGS.API.Size(screenSize.Width*factor, screenSize.Height*factor),
+                windowState: WindowState.Normal);
+
+            game.Start(settings);
         }
 
         private void setKeyboardEvents(IGame game)
@@ -178,6 +190,11 @@ namespace FakeAGSTestGame
 
         private async Task loadSplashScreen(IGame game)
         {
+            IAssetDef splashScreenAssetDef = new AssetDefsFactory(game, _resourcesTree).Process("*/Rooms/Splashscreen/*").First();
+
+            SplashScreen ss = new SplashScreen(game, "Splashscreen", splashScreenAssetDef);
+            ss.Load();
+
             /*
             AGSSplashScreen splashScreen = new AGSSplashScreen();
             Rooms.SplashScreen = splashScreen.Load(game);
