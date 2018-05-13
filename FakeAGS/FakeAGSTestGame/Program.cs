@@ -194,6 +194,7 @@ namespace FakeAGSTestGame
 
             SplashScreen ss = new SplashScreen(game, "Splashscreen", splashScreenAssetDef);
             ss.Load();
+            await game.State.ChangeRoomAsync(ss.Room);
 
             /*
             AGSSplashScreen splashScreen = new AGSSplashScreen();
