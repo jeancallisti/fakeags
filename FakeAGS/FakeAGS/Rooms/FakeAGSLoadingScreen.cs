@@ -51,6 +51,9 @@ namespace FakeAGS.Engine
             //This is the first of an infinite number of recursive calls.
             onRepeatedlyExecute_internal();
 
+            //Make sure that the engine takes everthing we've just inititliazed in consideration (i.e. displays it)
+            _game.State.Rooms.Add(this._room);
+
         }
 
         //This method must be overridden
